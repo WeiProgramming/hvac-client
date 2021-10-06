@@ -1,0 +1,138 @@
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.app__hero {
+  height: 80vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .app__hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 90, 247, 0.7);
+  }
+  .app__hero-info {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      margin-bottom: 3%;
+    }
+    p {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .app__hero-btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 45%;
+      margin-top: 5%;
+
+      button {
+        color: red;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 10px 20px;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.app__services {
+  padding: 5%;
+  .app__cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .app__card {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30%;
+      height: 250px;
+      margin: 1%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+      &:hover {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12),
+          0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+
+      svg {
+        font-size: 70px;
+      }
+      p {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.app__processes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 5%;
+
+  .app__process {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    > * {
+      margin-bottom: 10px;
+    }
+
+    svg {
+      font-size: 70px;
+    }
+  }
+}
+
+.app__about {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+.app__footer {
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f1f1f1;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}

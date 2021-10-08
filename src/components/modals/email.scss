@@ -1,0 +1,10 @@
+.email-modal__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .email-modal__close {
+        cursor: pointer;
+    }
+}
+

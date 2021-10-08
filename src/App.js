@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+import React, { useState } from 'react';
 import './App.scss'
 
 import { AiOutlineFire } from 'react-icons/ai'
@@ -8,8 +8,52 @@ import { GrUserWorker } from 'react-icons/gr'
 import { AiFillFacebook } from 'react-icons/ai'
 
 import hero from './assets/heros/test-hero.jpg'
+import Email from './components/modals/email'
+import Info from './components/modals/info'
+
+const servicesData = [
+  {
+    title: 'Heating',
+    description: 'lorem ipsum',
+    icon: <AiOutlineFire />
+  },
+  {
+    title: 'Air Conditioning',
+    description: 'lorem ipsum',
+    icon: <AiOutlineFire />
+  },
+  {
+    title: 'Maintenance',
+    description: 'lorem ipsum',
+    icon: <AiOutlineFire />
+  },
+  {
+    title: 'Electrical',
+    description: 'lorem ipsum',
+    icon: <AiOutlineFire />
+  },
+  {
+    title: 'Water',
+    description: 'lorem ipsum',
+    icon: <AiOutlineFire />
+  },
+  {
+    title: 'Plumbing',
+    description: 'lorem ipsum',
+    icon: <AiOutlineFire />
+  },
+];
 
 function App() {
+  let [toggleEmailModal, setToggleEmailModal] = useState(false);
+  let [toggleInfoModal, setToggleInfoModal] = useState(false);
+
+  const handleEmailModal = () => {
+    setToggleEmailModal(!toggleEmailModal);
+  }
+  const handleInfoModal = () => {
+    setToggleInfoModal(!toggleInfoModal);
+  }
   return (
     <div className="app">
       <div className="app__hero">
@@ -23,36 +67,20 @@ function App() {
           </p>
           <div className="app__hero-btns">
             <button>Our Services</button>
-            <button>Contact</button>
+            <button onClick={() => { handleEmailModal() }}>Contact</button>
           </div>
         </div>
       </div>
       <div className="app__services">
         <div className="app__cards">
-          <div className="app__card">
-            <AiOutlineFire />
-            <p>Heating</p>
-          </div>
-          <div className="app__card">
-            <AiOutlineFire />
-            <p>Air Conditioning</p>
-          </div>
-          <div className="app__card">
-            <AiOutlineFire />
-            <p>Maintenance</p>
-          </div>
-          <div className="app__card">
-            <AiOutlineFire />
-            <p>Electrical</p>
-          </div>
-          <div className="app__card">
-            <AiOutlineFire />
-            <p>Water</p>
-          </div>
-          <div className="app__card">
-            <AiOutlineFire />
-            <p>Plumbing</p>
-          </div>
+          {servicesData.map((data) => {
+            return (
+              <div className="app__card" onClick={() => handleInfoModal()}>
+                {data.icon}
+                <p>{data.title}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
       <div className="app__processes">
@@ -72,7 +100,7 @@ function App() {
           <GrUserWorker />
         </div>
       </div>
-      <dov className="app__about">
+      <div className="app__about">
         <h2>About Us</h2>
         <p>
           but also the leap into electronic typesetting, remaining essentially
@@ -88,7 +116,7 @@ function App() {
           with desktop publishing software like Aldus PageMaker including
           versions of Lorem Ipsum.
         </p>
-      </dov>
+      </div>
       <div className="app__footer">
         <div className="app__footer-contact">
           <h2>
@@ -138,6 +166,8 @@ function App() {
           </table>
         </div>
       </div>
+      <Email isOpen={toggleEmailModal} handleClose={handleEmailModal}></Email>
+      <Info isOpen={toggleInfoModal} handleClose={handleInfoModal}></Info>
     </div>
   )
 }
